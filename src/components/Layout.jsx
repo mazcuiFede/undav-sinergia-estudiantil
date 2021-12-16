@@ -1,22 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import Breadcrumbs from '@trendmicro/react-breadcrumbs';
-import ensureArray from 'ensure-array';
-import styled from 'styled-components';
+import { Divider, Box } from '@mui/material';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-breadcrumbs/dist/react-breadcrumbs.css';
 import '@trendmicro/react-buttons/dist/react-buttons.css';
 import '@trendmicro/react-dropdown/dist/react-dropdown.css';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import { TextField, IconButton, Box } from '@mui/material';
-import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@mui/icons-material/Home"
-import CommentBankIcon from '@mui/icons-material/CommentBank';
-import EmailIcon from '@mui/icons-material/Email';
-import HeadphonesIcon from '@mui/icons-material/Headphones';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import SettingsIcon from '@mui/icons-material/Settings';
+import PersonIcon from '@mui/icons-material/Person';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import LogoutIcon from '@mui/icons-material/Logout';
+import EventIcon from '@mui/icons-material/Event';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import { useNavigate } from 'react-router-dom';
-import { PagesToRender } from './PagesToRender'
+import styled from 'styled-components';
 
 const Main = styled.main`
     position: relative;
@@ -26,8 +23,8 @@ const Main = styled.main`
     margin-left: ${props => (props.expanded ? 240 : 64)}px;
 `;
 
-export const Layout = () => {
-    const [selected, setSelected] = useState('home')
+export const Layout = ({children}) => {
+    const [selected, setSelected] = useState('principal')
     const [expanded, setExpanded] = useState(false)
     const navigate = useNavigate();
 
@@ -39,28 +36,6 @@ export const Layout = () => {
         setExpanded(expanded);
     };
 
-    const renderBreadcrumbs = () => {
-        const list = ensureArray(PagesToRender[selected]);
-
-        return (
-            <Breadcrumbs>
-                {list.map((item, index) => (
-                    <Breadcrumbs.Item
-                        active={index === list.length - 1}
-                        key={`${selected}_${index}`}
-                    >
-                        {item}
-                    </Breadcrumbs.Item>
-                ))}
-            </Breadcrumbs>
-        );
-    }
-
-    const SearchButton = () => (
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-    )
 
     useEffect(() => {
         setSelected(window.location.pathname)
@@ -68,83 +43,106 @@ export const Layout = () => {
 
     return (
         <div>
-            <div
-                style={{
-                    marginLeft: expanded ? 240 : 64
-                }}
-            >
-            <Box sx={{display: 'flex', alignItems: 'flex-end'}} pt={1} pl={2} pr={2}>
-                <TextField
-                    fullWidth label="Buscar Cliente"
-                    InputProps={{endAdornment: <SearchButton />}}
-                />
-            </Box>
-            </div>
-            <SideNav onSelect={onSelect} onToggle={onToggle}>
+            <SideNav onSelect={onSelect} onToggle={onToggle} className="sidebar sidenav">
                 <SideNav.Toggle />
                 <SideNav.Nav selected={selected}>
-                    <NavItem eventKey="/home">
+
+                    <NavItem eventKey="/principal">
                         <NavIcon style={{padding: "7px"}}>
                             <HomeIcon  />
                         </NavIcon>
-                        <NavText title="Home">
-                            Home
+                        <NavText title="Principal">
+                            Principal
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="/colocacion">
+
+                    
+                    
+                    <NavItem eventKey="/foro">
                         <NavIcon style={{padding: "7px"}}>
-                            <CommentBankIcon className="fa fa-fw fa-line-chart" />
+                            <ConnectWithoutContactIcon className="fa fa-fw fa-cogs" />
                         </NavIcon>
-                        <NavText title="Devices">
-                            Colocacion
+                        <NavText title="foro">
+                            Foro
                         </NavText>
-                    </NavItem>
-                    <NavItem eventKey="/cobros">
-                        <NavIcon style={{padding: "7px"}}>
-                            <EmailIcon className="fa fa-fw fa-list-alt" />
-                        </NavIcon>
-                        <NavText title="Reports">
-                            Cobros
-                        </NavText>
-                    </NavItem>
-                    <NavItem eventKey="/cx">
-                        <NavIcon style={{padding: "7px"}}>
-                            <HeadphonesIcon className="fa fa-fw fa-list-alt" />
-                        </NavIcon>
-                        <NavText title="Reports">
-                            CX
-                        </NavText>
-                    </NavItem>
-                    <NavItem eventKey="/tesoreria">
-                        <NavIcon style={{padding: "7px"}}>
-                            <AccountBalanceIcon className="fa fa-fw fa-list-alt" />
-                        </NavIcon>
-                        <NavText title="Reports">
-                            Tesoreria
-                        </NavText>
-                    </NavItem>
-                    <NavItem eventKey="/ajustes">
-                        <NavIcon style={{padding: "7px"}}>
-                            <SettingsIcon className="fa fa-fw fa-cogs" />
-                        </NavIcon>
-                        <NavText title="Settings">
-                            Ajustes
-                        </NavText>
-                        <NavItem eventKey="/ajustes/policies">
-                            <NavText title="Policies">
-                                Policies
+                        <NavItem eventKey="/foro/universidad">
+                            <NavText title="Dudas Universitarias">
+                                Dudas Universitarias
                             </NavText>
                         </NavItem>
-                        <NavItem eventKey="/ajustes/network">
-                            <NavText title="Network">
-                                Network
+                        <NavItem eventKey="/foro/trabajo">
+                            <NavText title="Dudas Laborales">
+                                Dudas Laborales
+                            </NavText>
+                        </NavItem>
+                        <NavItem eventKey="/foro/tecnologia">
+                            <NavText title="Dudas técnicas">
+                                Dudas técnicas
                             </NavText>
                         </NavItem>
                     </NavItem>
+
+                    <NavItem eventKey="/eventos">
+                        <NavIcon style={{padding: "7px"}}>
+                            <EventIcon  />
+                        </NavIcon>
+                        <NavText title="Eventos">
+                            Eventos
+                        </NavText>
+                    </NavItem>
+           
+                    
+                    <Divider light={true}/>
+
+
+                    <NavItem eventKey="/perfil">
+                        <NavIcon style={{padding: "7px"}}>
+                            <PersonIcon  />
+                        </NavIcon>
+                        <NavText title="Perfil">
+                            Perfil
+                        </NavText>
+                    </NavItem>
+
+                    
+                    <NavItem eventKey="/subir-contenido">
+                        <NavIcon style={{padding: "7px"}}>
+                            <CloudUploadIcon className="fa fa-fw fa-line-chart" />
+                        </NavIcon>
+                        <NavText title="Subir Contenido">
+                            Subir Contenido
+                        </NavText>
+                    </NavItem>
+
+
+                    <NavItem eventKey="/crear-evento">
+                        <NavIcon style={{padding: "7px"}}>
+                            <AddBoxIcon className="fa fa-fw fa-list-alt" />
+                        </NavIcon>
+                        <NavText title="Crear Evento">
+                            Crear Evento
+                        </NavText>
+                    </NavItem>
+
+
+                    <Divider />
+
+
+                    <NavItem eventKey="/cerrar-sesion">
+                        <NavIcon style={{padding: "7px"}}>
+                            <LogoutIcon className="fa fa-fw fa-list-alt" />
+                        </NavIcon>
+                        <NavText title="Cerrar Sesión">
+                            Cerrar Sesión
+                        </NavText>
+                    </NavItem>
+                    
                 </SideNav.Nav>
             </SideNav>
             <Main expanded={expanded}>
-                {renderBreadcrumbs()}
+                <Box mt={2}>
+                    {children}
+                </Box>
             </Main>
         </div>
     );
