@@ -99,7 +99,7 @@ export const Layout = ({children}) => {
                         <NavIcon style={{padding: "7px"}}>
                             <QuizIcon className="fa fa-fw fa-line-chart" />
                         </NavIcon>
-                        <NavText title="Hacer pregunta">
+                        <NavText title="hacerpregunta">
                             Hacer Pregunta
                         </NavText>
                     </NavItem>

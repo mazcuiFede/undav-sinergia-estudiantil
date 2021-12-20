@@ -14,7 +14,7 @@ import PerfilPage from '../pages/perfilPage'
 import SubirContenidoPage from '../pages/subirContenidoPage'
 import CrearEventoPage from '../pages/crearEventoPage'
 import HacerPregunta from '../pages/hacerPregunta';
-import PostularmeAdmin from '../pages/PostularmeAdmin';
+import PostularmeAdmin from '../pages/postularmeAdmin';
 
 
 export const RouterConfig = () => {

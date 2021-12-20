@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/img/logo.png'
 import { Button, Grid, Paper, Avatar } from '@mui/material'

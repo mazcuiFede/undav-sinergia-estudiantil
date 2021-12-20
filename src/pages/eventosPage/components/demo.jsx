@@ -34,11 +34,11 @@ const appointments = [
   },
 ];
 
-const resources = [{
-  fieldName: 'ownerId',
-  title: 'Owners',
-  instances: owners,
-}];
+// const resources = [{
+//   fieldName: 'ownerId',
+//   title: 'Owners',
+//   instances: owners,
+// }];
 
 const getBorder = theme => (`1px solid ${
   theme.palette.type === 'light'
@@ -170,6 +170,7 @@ const styles = theme => ({
   },
 });
 
+
 const WeatherIcon = ({ classes, id }) => {
   switch (id) {
     case 0:
@@ -248,27 +249,27 @@ export default class Demo extends React.PureComponent {
       data: appointments,
     };
 
-    this.commitChanges = this.commitChanges.bind(this);
+    // this.commitChanges = this.commitChanges.bind(this);
   }
 
   // #FOLD_BLOCK
-  commitChanges({ added, changed, deleted }) {
-    this.setState((state) => {
-      let { data } = state;
-      if (added) {
-        const startingAddedId = data.length > 0 ? data[data.length - 1].id + 1 : 0;
-        data = [...data, { id: startingAddedId, ...added }];
-      }
-      if (changed) {
-        data = data.map(appointment => (
-          changed[appointment.id] ? { ...appointment, ...changed[appointment.id] } : appointment));
-      }
-      if (deleted !== undefined) {
-        data = data.filter(appointment => appointment.id !== deleted);
-      }
-      return { data };
-    });
-  }
+  // commitChanges({ added, changed, deleted }) {
+  //   this.setState((state) => {
+  //     let { data } = state;
+  //     if (added) {
+  //       const startingAddedId = data.length > 0 ? data[data.length - 1].id + 1 : 0;
+  //       data = [...data, { id: startingAddedId, ...added }];
+  //     }
+  //     if (changed) {
+  //       data = data.map(appointment => (
+  //         changed[appointment.id] ? { ...appointment, ...changed[appointment.id] } : appointment));
+  //     }
+  //     if (deleted !== undefined) {
+  //       data = data.filter(appointment => appointment.id !== deleted);
+  //     }
+  //     return { data };
+  //   });
+  // }
 
   render() {
     const { data } = this.state;
@@ -278,9 +279,10 @@ export default class Demo extends React.PureComponent {
         <Scheduler
           data={data}
         >
-          <EditingState
+          {/* <EditingState
             onCommitChanges={this.commitChanges}
-          />
+          /> */}
+
           <ViewState
             defaultCurrentDate="2018-07-17"
           />
@@ -295,23 +297,24 @@ export default class Demo extends React.PureComponent {
             appointmentContentComponent={AppointmentContent}
           />
           
-          <Resources
+          {/* <Resources
             data={resources}
-          />
+          /> */}
 
           <Toolbar
             flexibleSpaceComponent={FlexibleSpace}
           />
+
           <DateNavigator />
 
-          <EditRecurrenceMenu />
+          {/* <EditRecurrenceMenu /> */}
           <AppointmentTooltip
             showCloseButton
             showDeleteButton
             showOpenButton
           />
           <AppointmentForm />
-          <DragDropProvider />
+          {/* <DragDropProvider /> */}
         </Scheduler>
       </Paper>
     );

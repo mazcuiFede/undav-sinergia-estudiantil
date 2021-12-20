@@ -1,32 +1,34 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import { styled } from '@mui/material/styles';
 import { Box, Button, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import ForoItemsList from '../../components/ForoItemsList'
+import dudasService from '../../services/dudas.service';
+import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
   }));
 
-const dudas = [
-    {
-        titulo: "How to add React JSX for every item in state array?",
-        puntos: 3,
-        comentarios: ["Muy bueno", "Muchas gracias"],
-        tags: ["React", "Programacion"]
-    },
-    {
-        titulo: "How to add React JSX for every item in state array?",
-        puntos: 5,
-        comentarios: ["Muy bueno", "Muchas gracias"],
-        tags: ["React", "Programacion", "Programacion"]
-    }
-]
 
 const ForoTecnologiaPage = props => {
+
+    const [dudas, setDudas] = useState([])
+
+    useEffect(() => {
+        dudasService.dudasTecnologia().then(
+            response => {
+                setDudas(response)
+            },
+            error => {
+
+            }
+        )
+    }, [])
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} alignItems="center" justifyContent="center">
@@ -34,7 +36,11 @@ const ForoTecnologiaPage = props => {
                     <Item><Typography variant="h4">Dudas sobre Tecnología</Typography></Item>
                 </Grid>
                 <Grid item xs={6}>
-                    <Item><Button variant="contained">Hacer una pregunta</Button></Item>
+                    <Item>
+                        <Link to="/hacer-pregunta">
+                            <Button variant="contained">Hacer una pregunta</Button>
+                        </Link>
+                    </Item>
                 </Grid>
                 <Grid item xs={12}>
                     <Item><ForoItemsList dudas={dudas} /></Item>

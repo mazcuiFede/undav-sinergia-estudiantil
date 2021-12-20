@@ -4,7 +4,6 @@ import { Button, Grid, Paper, Avatar, TextField, FormControlLabel } from '@mui/m
 import { Checkbox, Alert } from '@mui/material'
 import logo from '../../assets/img/logo.png'
 import loginService from '../../services/session.service'
-import tokenService from '../../services/token.service'
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
