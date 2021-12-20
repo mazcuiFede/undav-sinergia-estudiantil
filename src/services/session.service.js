@@ -8,19 +8,17 @@ export const sessionService = {
   logout
 };
 
-async function login(correoElectronico, clave) {
+async function login(documento, clave) {
   const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ correoElectronico, clave })
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
   };
-
-  let url = `${baseUrl}/users`
+  let url = `${baseUrl}/users?documento=${documento}&password=${clave}`
 
   const data = await fetch(url, requestOptions)
   const result = await data.json();
 
-  return result
+  return result[0]
 
 }
 
@@ -33,7 +31,6 @@ async function register(estudiante){
   };
   
   let url = `${baseUrl}/users`
-  debugger
   const data = await fetch(url, requestOptions)
   const result = await data.json();
 

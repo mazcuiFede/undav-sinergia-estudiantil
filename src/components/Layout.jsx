@@ -10,7 +10,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import LogoutIcon from '@mui/icons-material/Logout';
 import EventIcon from '@mui/icons-material/Event';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import QuizIcon from '@mui/icons-material/Quiz';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -105,12 +105,12 @@ export const Layout = ({children}) => {
                     </NavItem>
 
                     
-                    <NavItem eventKey="/subir-contenido">
+                    <NavItem eventKey="/hacer-pregunta">
                         <NavIcon style={{padding: "7px"}}>
-                            <CloudUploadIcon className="fa fa-fw fa-line-chart" />
+                            <QuizIcon className="fa fa-fw fa-line-chart" />
                         </NavIcon>
-                        <NavText title="Subir Contenido">
-                            Subir Contenido
+                        <NavText title="Hacer pregunta">
+                            Hacer Pregunta
                         </NavText>
                     </NavItem>
 

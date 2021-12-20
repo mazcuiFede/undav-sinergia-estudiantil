@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom'
-import { ROOT, LOGIN, REGISTRARSE, PRINCIPAL, FORO_UNIVERSIDAD, FORO_TRABAJO, FORO_TECNOLOGIA, EVENTOS, PERFIL, SUBIR_CONTENIDO, CREAR_EVENTO } from './../constants/url'
+import { ROOT, LOGIN, REGISTRARSE, PRINCIPAL, FORO_UNIVERSIDAD, FORO_TRABAJO, FORO_TECNOLOGIA, EVENTOS, PERFIL, SUBIR_CONTENIDO, CREAR_EVENTO, HACER_PREGUNTA } from './../constants/url'
 import { Layout } from '../components/Layout'
 import PrivateRoute from '../components/PrivateRoute';
 
@@ -13,6 +13,7 @@ import EventosPage  from '../pages/eventosPage'
 import PerfilPage from '../pages/perfilPage'
 import SubirContenidoPage from '../pages/subirContenidoPage'
 import CrearEventoPage from '../pages/crearEventoPage'
+import HacerPregunta from '../pages/hacerPregunta';
 
 
 export const RouterConfig = () => {
@@ -30,8 +31,10 @@ export const RouterConfig = () => {
             <Route path={FORO_TECNOLOGIA} element={<Layout children={<ForoTecnologiaPage />}/>} />
             <Route path={EVENTOS} element={<Layout children={<EventosPage />}/>} />
             <Route path={PERFIL} element={<Layout children={<PerfilPage />}/>} />
-            <Route path={SUBIR_CONTENIDO} element={<Layout children={<SubirContenidoPage />}/>} />
+            {/* <Route path={SUBIR_CONTENIDO} element={<Layout children={<SubirContenidoPage />}/>} /> */}
             <Route path={CREAR_EVENTO} element={<Layout children={<CrearEventoPage />}/>} />
+            <Route path={HACER_PREGUNTA} element={<Layout children={<HacerPregunta />}/>} />
+            
         </Routes>
     )
 }
