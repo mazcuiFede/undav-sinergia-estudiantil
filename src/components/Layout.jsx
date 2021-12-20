@@ -94,16 +94,6 @@ export const Layout = ({children}) => {
                     
                     <Divider light={true}/>
 
-
-                    <NavItem eventKey="/perfil">
-                        <NavIcon style={{padding: "7px"}}>
-                            <PersonIcon  />
-                        </NavIcon>
-                        <NavText title="Perfil">
-                            Perfil
-                        </NavText>
-                    </NavItem>
-
                     
                     <NavItem eventKey="/hacer-pregunta">
                         <NavIcon style={{padding: "7px"}}>
@@ -121,6 +111,24 @@ export const Layout = ({children}) => {
                         </NavIcon>
                         <NavText title="Crear Evento">
                             Crear Evento
+                        </NavText>
+                    </NavItem>
+
+                    <NavItem eventKey="/perfil">
+                        <NavIcon style={{padding: "7px"}}>
+                            <PersonIcon  />
+                        </NavIcon>
+                        <NavText title="Perfil">
+                            Perfil
+                        </NavText>
+                    </NavItem>
+
+                    <NavItem eventKey="/postularme-admin">
+                        <NavIcon style={{padding: "7px"}}>
+                            <PersonIcon  />
+                        </NavIcon>
+                        <NavText title="postularme admin">
+                            Postularme Admin
                         </NavText>
                     </NavItem>
 

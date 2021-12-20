@@ -10,4 +10,5 @@ export const PERFIL = "/perfil";
 // export const SUBIR_CONTENIDO = "/subir-contenido";
 export const CREAR_EVENTO = "/crear-evento";
 export const HACER_PREGUNTA = "/hacer-pregunta";
+export const POSTULARME_ADMIN = "/postularme-admin";
 

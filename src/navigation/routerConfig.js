@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom'
-import { ROOT, LOGIN, REGISTRARSE, PRINCIPAL, FORO_UNIVERSIDAD, FORO_TRABAJO, FORO_TECNOLOGIA, EVENTOS, PERFIL, SUBIR_CONTENIDO, CREAR_EVENTO, HACER_PREGUNTA } from './../constants/url'
+import { ROOT, LOGIN, REGISTRARSE, PRINCIPAL, FORO_UNIVERSIDAD, FORO_TRABAJO, FORO_TECNOLOGIA, EVENTOS, PERFIL, POSTULARME_ADMIN, CREAR_EVENTO, HACER_PREGUNTA } from './../constants/url'
 import { Layout } from '../components/Layout'
 import PrivateRoute from '../components/PrivateRoute';
 
@@ -14,6 +14,7 @@ import PerfilPage from '../pages/perfilPage'
 import SubirContenidoPage from '../pages/subirContenidoPage'
 import CrearEventoPage from '../pages/crearEventoPage'
 import HacerPregunta from '../pages/hacerPregunta';
+import PostularmeAdmin from '../pages/PostularmeAdmin';
 
 
 export const RouterConfig = () => {
@@ -34,6 +35,7 @@ export const RouterConfig = () => {
             {/* <Route path={SUBIR_CONTENIDO} element={<Layout children={<SubirContenidoPage />}/>} /> */}
             <Route path={CREAR_EVENTO} element={<Layout children={<CrearEventoPage />}/>} />
             <Route path={HACER_PREGUNTA} element={<Layout children={<HacerPregunta />}/>} />
+            <Route path={POSTULARME_ADMIN} element={<Layout children={<PostularmeAdmin />}/>} />
             
         </Routes>
     )
