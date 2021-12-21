@@ -24,7 +24,6 @@ async function guardarDuda(titulo, descripcion, tags, tipo) {
         comentarios: []
     }
 
-    debugger
 
     const requestOptions = {
         method: 'POST',
@@ -32,7 +31,6 @@ async function guardarDuda(titulo, descripcion, tags, tipo) {
         body: JSON.stringify(duda)
     };
   
-    debugger
     let url = `${baseUrl}/dudas`
   
     const data = await fetch(url, requestOptions)

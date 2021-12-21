@@ -20,7 +20,7 @@ class Demo extends React.Component {
       allowDeleting: true,
       allowResizing: true,
       allowDragging: true,
-      allowUpdating: true,
+      allowUpdating: false,
       data: {}
     };
     this.onAllowAddingChanged = this.onAllowAddingChanged.bind(this);
@@ -38,7 +38,6 @@ class Demo extends React.Component {
 
     eventoServices.obtenerEventos().then(
       response => {
-        debugger
         this.setState({ data: response });
       }
     )
@@ -48,20 +47,20 @@ class Demo extends React.Component {
     return (
       <React.Fragment>
         <Scheduler
-          timeZone="America/Los_Angeles"
+          timeZone="America/Argentina/Buenos_Aires"
           dataSource={this.state.data}
           views={views}
           defaultCurrentView="week"
           defaultCurrentDate={currentDate}
           startDayHour={9}
-          endDayHour={19}
+          endDayHour={23}
           height={600}
           editing={this.state}
           onAppointmentAdded={this.showAddedToast}
-          onAppointmentUpdated={this.showUpdatedToast}
+          onAppointmentUpdated={false} //this.showUpdatedToast
           onAppointmentDeleted={this.showDeletedToast}
         />
-        <div className="options">
+        {/* <div className="options">
           <div className="caption">Options</div>
           <div className="options-container">
             <div className="option">
@@ -102,7 +101,7 @@ class Demo extends React.Component {
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </React.Fragment>
     );
   }
@@ -132,7 +131,15 @@ class Demo extends React.Component {
   }
 
   showAddedToast(e) {
-    this.showToast('Added', e.appointmentData.text, 'success');
+    eventoServices.guardarEvento(e.appointmentData).then(
+      response => {
+        this.showToast('Added', e.appointmentData.text, 'success');
+      },
+      error => {
+        debugger  
+      }
+    )
+    
   }
 
   showUpdatedToast(e) {
@@ -140,8 +147,18 @@ class Demo extends React.Component {
   }
 
   showDeletedToast(e) {
+    debugger
+    eventoServices.eliminarEvento(e.appointmentData.id).then(
+      response => {
+        this.showToast('Added', e.appointmentData.text, 'success');
+      },
+      error => {
+        debugger  
+      }
+    )
     this.showToast('Deleted', e.appointmentData.text, 'warning');
   }
+
 }
 
 export default Demo;

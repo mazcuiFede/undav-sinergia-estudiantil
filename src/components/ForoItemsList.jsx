@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useNavigate } from "react-router-dom";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -24,6 +25,7 @@ function Item(props) {
   }
 
 const ForoItemsList = ({dudas}) => {
+    let navigate = useNavigate();
     return (
         <Box sx={{ width: '100%', bgcolor: 'background.paper', justifyContent: 'center', display: 'flex'  }}>
             <nav aria-label="main mailbox folders">
@@ -32,7 +34,7 @@ const ForoItemsList = ({dudas}) => {
                         dudas.map(duda => 
                                 <>
                                     <ListItem>
-                                        <ListItemButton>
+                                        <ListItemButton onClick={() => {navigate(`/foro/duda/${duda.id}`);}}>
                                             <Stack spacing={2} direction="row">
                                                 <Item><Button variant="outlined">{duda.puntos} puntos</Button></Item>
                                                 <Item><Button variant="outlined">{duda.comentarios.length} comentarios</Button></Item>
