@@ -12,8 +12,6 @@ import ForoTrabajoPage from '../pages/foroTrabajoPage'
 import ForoTecnologiaPage  from '../pages/foroTecnologiaPage'
 import EventosPage  from '../pages/eventosPage'
 import PerfilPage from '../pages/perfilPage'
-import SubirContenidoPage from '../pages/subirContenidoPage'
-import CrearEventoPage from '../pages/crearEventoPage'
 import HacerPregunta from '../pages/hacerPregunta';
 import PostularmeAdmin from '../pages/postularmeAdmin';
 import DudaPage from '../pages/dudaPage'
@@ -37,7 +35,6 @@ export const RouterConfig = () => {
             <Route path={EVENTOS} element={<Layout children={<EventosPage />}/>} />
             <Route path={PERFIL} element={<Layout children={<PerfilPage />}/>} />
             {/* <Route path={SUBIR_CONTENIDO} element={<Layout children={<SubirContenidoPage />}/>} /> */}
-            <Route path={CREAR_EVENTO} element={<Layout children={<CrearEventoPage />}/>} />
             <Route path={HACER_PREGUNTA} element={<Layout children={<HacerPregunta />}/>} />
             <Route path={POSTULARME_ADMIN} element={<Layout children={<PostularmeAdmin />}/>} />
             

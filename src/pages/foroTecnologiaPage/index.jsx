@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import { styled } from '@mui/material/styles';
 import { Box, Button, Typography } from '@mui/material';
+import { Link } from "react-router-dom";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import ForoItemsList from '../../components/ForoItemsList'
 import dudasService from '../../services/dudas.service';
-import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),

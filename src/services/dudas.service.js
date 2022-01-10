@@ -8,8 +8,25 @@ export const dudasService = {
   dudasUniversitarias,
   dudasLaborales,
   dudasTecnologia,
+  getDudaById,
   guardarDuda
 };
+
+
+async function getDudaById(id) {
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+  
+    let url = `${baseUrl}/dudas?id=${id}`
+    const data = await fetch(url, requestOptions)
+    const result = await data.json();
+  
+    return result[0]
+  
+  }
+
 
 async function guardarDuda(titulo, descripcion, tags, tipo) {
 

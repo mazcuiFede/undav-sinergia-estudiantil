@@ -7,7 +7,7 @@ import '@trendmicro/react-dropdown/dist/react-dropdown.css';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import HomeIcon from "@mui/icons-material/Home"
 import PersonIcon from '@mui/icons-material/Person';
-import AddBoxIcon from '@mui/icons-material/AddBox';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import EventIcon from '@mui/icons-material/Event';
 import QuizIcon from '@mui/icons-material/Quiz';
@@ -105,14 +105,14 @@ export const Layout = ({children}) => {
                     </NavItem>
 
 
-                    <NavItem eventKey="/crear-evento">
+                    {/* <NavItem eventKey="/crear-evento">
                         <NavIcon style={{padding: "7px"}}>
                             <AddBoxIcon className="fa fa-fw fa-list-alt" />
                         </NavIcon>
                         <NavText title="Crear Evento">
                             Crear Evento
                         </NavText>
-                    </NavItem>
+                    </NavItem> */}
 
                     <NavItem eventKey="/perfil">
                         <NavIcon style={{padding: "7px"}}>
@@ -125,7 +125,7 @@ export const Layout = ({children}) => {
 
                     <NavItem eventKey="/postularme-admin">
                         <NavIcon style={{padding: "7px"}}>
-                            <PersonIcon  />
+                            <AdminPanelSettingsIcon  />
                         </NavIcon>
                         <NavText title="postularme admin">
                             Postularme Admin
@@ -136,7 +136,7 @@ export const Layout = ({children}) => {
                     <Divider />
 
 
-                    <NavItem eventKey="/cerrar-sesion">
+                    <NavItem eventKey="/login">
                         <NavIcon style={{padding: "7px"}}>
                             <LogoutIcon className="fa fa-fw fa-list-alt" />
                         </NavIcon>

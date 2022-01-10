@@ -39,7 +39,7 @@ const HacerPregunta = props => {
 
     return (
             <Grid>
-                <Paper elevation={10} style={{ padding: 20, width: 600, margin: "90px auto"}}>
+                <Paper elevation={10} style={{ padding: 20, width: 600, margin: "10px auto"}}>
                     <Grid align='center' mb={3}>
                         <Stack spacing={2}>
                             <FormControl fullWidth>

@@ -28,12 +28,12 @@ const ForoItemsList = ({dudas}) => {
     let navigate = useNavigate();
     return (
         <Box sx={{ width: '100%', bgcolor: 'background.paper', justifyContent: 'center', display: 'flex'  }}>
-            <nav aria-label="main mailbox folders">
+            
                 <List sx={{ width: '100%'}}>
                     {
                         dudas.map(duda => 
                                 <>
-                                    <ListItem>
+                                    <ListItem alignItems={"flex-start"}>
                                         <ListItemButton onClick={() => {navigate(`/foro/duda/${duda.id}`);}}>
                                             <Stack spacing={2} direction="row">
                                                 <Item><Button variant="outlined">{duda.puntos} puntos</Button></Item>
@@ -56,7 +56,6 @@ const ForoItemsList = ({dudas}) => {
                     
                 </List>
                 
-            </nav>
         </Box>
     )
 }

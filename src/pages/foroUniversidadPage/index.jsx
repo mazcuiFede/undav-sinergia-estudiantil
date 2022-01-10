@@ -8,11 +8,6 @@ import ForoItemsList from '../../components/ForoItemsList'
 import dudasService from '../../services/dudas.service';
 import { Link } from "react-router-dom";
 
-const Item = styled(Paper)(({ theme }) => ({
-    padding: theme.spacing(1),
-    textAlign: 'center',
-  }));
-
 
 const ForoUniversidadPage = props => {
 
@@ -34,17 +29,17 @@ const ForoUniversidadPage = props => {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} alignItems="center" justifyContent="center">
                 <Grid item xs={6}>
-                    <Item><Typography variant="h4">Dudas Universitarias</Typography></Item>
+                    <Typography variant="h4">Dudas Universitarias</Typography>
                 </Grid>
-                <Grid item xs={6}>
-                    <Item>
+                <Grid item xs={6} align={"right"}>
+                    
                         <Link to="/hacer-pregunta">
                             <Button variant="contained">Hacer una pregunta</Button>
                         </Link>
-                    </Item>
+                    
                 </Grid>
                 <Grid item xs={12}>
-                    <Item><ForoItemsList dudas={dudas} /></Item>
+                    <ForoItemsList dudas={dudas} />
                 </Grid>
             </Grid>
         </Box>

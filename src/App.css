@@ -4,4 +4,8 @@ body {
 
 .sidenav.sidebar{
     background: #163353
-  }
+}
+
+a {
+    text-decoration: none;
+}

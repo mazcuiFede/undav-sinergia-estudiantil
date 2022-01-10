@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 const LoginPage = () => {
 
-    const [userData, setUserData] = useState(null);
     const [documento, setDocumento] = useState("");
     const [password, setPassword] = useState("");
     const [formError, setFormError] = useState(false);
@@ -30,6 +29,7 @@ const LoginPage = () => {
                 response => {
                     if(response.token){
                         localStorage.setItem('token', response.token)
+                        localStorage.setItem('id', response.id)
                         navigate("/principal");
                     }
                 },
@@ -46,11 +46,6 @@ const LoginPage = () => {
             setDocumento('')
             setPassword('')
         }
-    }
-
-
-    const redirectToPrincipalPage = () => {
-        navigate("/principal");
     }
 
     return (

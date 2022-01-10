@@ -5,8 +5,23 @@ const baseUrl = process.env.REACT_APP_API_URL;
 export const sessionService = {
   login,
   register,
-  logout
+  logout,
+  getUserData
 };
+
+async function getUserData(id) {
+  const requestOptions = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+  };
+
+  let url = `${baseUrl}/users?id=${id}`
+
+  const data = await fetch(url, requestOptions)
+  const result = await data.json();
+
+  return result[0]
+}
 
 async function login(documento, clave) {
   const requestOptions = {

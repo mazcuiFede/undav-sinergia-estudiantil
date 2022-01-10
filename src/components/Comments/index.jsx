@@ -1,26 +1,52 @@
-import React, { PureComponent, useState } from 'react'
-import data from "./data.json"
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import sessionService from '../../services/session.service'
 import { CommentSection } from './../../dependencies/React-comments'
 import './../../dependencies/React-comments/index.css'
 import "./Comments.css"
 
 
- const Comments = () => {
-   const [comment, setComment] = useState(data)
-   const userId = "01a"
-   const avatarUrl = "https://ui-avatars.com/api/name=Riya&background=random"
-   const name = "xyz"
-   const signinUrl = "/login"
-   const signupUrl = "/registrarse"
+const Comments = ({data}) => {
+  
+  const [comment, setComment] = useState(data)
+  const [user, setUser] = useState(null)
+  
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    debugger
+    var userId = localStorage.getItem("id")
+    if (!userId){
+      navigate("/login");
+    }
+
+    sessionService.getUserData(userId).then(
+      response => {
+        debugger
+        setUser(response)
+      }
+    )
+  }, [])
+
+  const setearComentarios = (comments) => {
+    setComment(comments)
+  }
+
+  const signinUrl = "/login"
+  const signupUrl = "/registrarse"
+   
    let count = 0
-debugger
    comment.map(i => {count+=1; i.replies && i.replies.map(i=> count+=1)} )
 
    return <div className="commentSection">
-            <div className="header">{count} Comments</div>
+            <div className="header">{count} Comentarios</div>
 
-            <CommentSection currentUser={userId && { userId: userId, avatarUrl: avatarUrl, name: name }} commentsArray={comment}
-            setComment={setComment} signinUrl={signinUrl} signupUrl={signupUrl}/>
+            <CommentSection currentUser={user && { userId: user.id, avatarUrl: user.avatarUrl, name: user.nombre + " " + user.apellido }} 
+                commentsArray={comment} 
+                setComment={setearComentarios} 
+                signinUrl={signinUrl} 
+                signupUrl={signupUrl}
+              />
           </div>
  }
  
