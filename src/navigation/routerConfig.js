@@ -20,23 +20,23 @@ import DudaPage from '../pages/dudaPage'
 export const RouterConfig = () => {
     return (
         <Routes>
-            {/* <Route path={ROOT} element={<PrivateRoute><Layout /></PrivateRoute>}/> */}
-            <Route path={LOGIN} element={<LoginPage />} />
+            {/* <Route path={ROOT} element={<PrivateRoute><PrivateRoute><Layout /></PrivateRoute>}/> */}
+            <Route path={LOGIN} element={<LoginPage /> }/>
             <Route path={REGISTRARSE} element={<RegistrarsePage />} />
 
 
-            <Route path={ROOT} element={<Layout children={<PrincipalPage />}/>} />
-            <Route path={PRINCIPAL} element={<Layout children={<PrincipalPage />}/>} />
-            <Route path={FORO_UNIVERSIDAD} element={<Layout children={<ForoUniversidadPage />}/>} />
-            <Route path={FORO_TRABAJO} element={<Layout children={<ForoTrabajoPage />}/>} />
-            <Route path={FORO_TECNOLOGIA} element={<Layout children={<ForoTecnologiaPage />}/>} />
-            <Route path={FORO_DUDA} element={<Layout children={<DudaPage />}/>} />
+            <Route path={ROOT} element={<PrivateRoute><Layout children={<PrincipalPage />}/></PrivateRoute>} />
+            <Route path={PRINCIPAL} element={<PrivateRoute><Layout children={<PrincipalPage />}/></PrivateRoute>} />
+            <Route path={FORO_UNIVERSIDAD} element={<PrivateRoute><Layout children={<ForoUniversidadPage />}/></PrivateRoute>} />
+            <Route path={FORO_TRABAJO} element={<PrivateRoute><Layout children={<ForoTrabajoPage />}/></PrivateRoute>} />
+            <Route path={FORO_TECNOLOGIA} element={<PrivateRoute><Layout children={<ForoTecnologiaPage />}/></PrivateRoute>} />
+            <Route path={FORO_DUDA} element={<PrivateRoute><Layout children={<DudaPage />}/></PrivateRoute>} />
             
-            <Route path={EVENTOS} element={<Layout children={<EventosPage />}/>} />
-            <Route path={PERFIL} element={<Layout children={<PerfilPage />}/>} />
-            {/* <Route path={SUBIR_CONTENIDO} element={<Layout children={<SubirContenidoPage />}/>} /> */}
-            <Route path={HACER_PREGUNTA} element={<Layout children={<HacerPregunta />}/>} />
-            <Route path={POSTULARME_ADMIN} element={<Layout children={<PostularmeAdmin />}/>} />
+            <Route path={EVENTOS} element={<PrivateRoute><Layout children={<EventosPage />}/></PrivateRoute>} />
+            <Route path={PERFIL} element={<PrivateRoute><Layout children={<PerfilPage />}/></PrivateRoute>} />
+            {/* <Route path={SUBIR_CONTENIDO} element={<PrivateRoute><Layout children={<SubirContenidoPage />}/></PrivateRoute>} /> */}
+            <Route path={HACER_PREGUNTA} element={<PrivateRoute><Layout children={<HacerPregunta />}/></PrivateRoute>} />
+            <Route path={POSTULARME_ADMIN} element={<PrivateRoute><Layout children={<PostularmeAdmin />}/></PrivateRoute>} />
             
         </Routes>
     )

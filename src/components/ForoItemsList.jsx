@@ -31,10 +31,10 @@ const ForoItemsList = ({dudas}) => {
             
                 <List sx={{ width: '100%'}}>
                     {
-                        dudas.map(duda => 
-                                <>
+                        dudas.map(duda => {
+                            return <>
                                     <ListItem alignItems={"flex-start"}>
-                                        <ListItemButton onClick={() => {navigate(`/foro/duda/${duda.id}`);}}>
+                                        <ListItemButton onClick={() => {navigate(`/foro/duda/${duda._id}`);}}>
                                             <Stack spacing={2} direction="row">
                                                 <Item><Button variant="outlined">{duda.puntos} puntos</Button></Item>
                                                 <Item><Button variant="outlined">{duda.comentarios.length} comentarios</Button></Item>
@@ -51,7 +51,7 @@ const ForoItemsList = ({dudas}) => {
                                     </ListItem>
                                     <Divider variant="inset" component="li" />
                                 </>
-                        )
+                        })
                     }
                     
                 </List>

@@ -27,10 +27,18 @@ const LoginPage = () => {
                 password
             ).then(
                 response => {
+                    debugger
                     if(response.token){
                         localStorage.setItem('token', response.token)
-                        localStorage.setItem('id', response.id)
                         navigate("/principal");
+                    }
+                    else{
+                        setFormError(true)
+                        setTimeout(() => {
+                            setFormError(false)
+                        }, 3000)
+                        setDocumento('')
+                        setPassword('')
                     }
                 },
                 error => {

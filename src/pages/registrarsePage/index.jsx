@@ -17,26 +17,24 @@ const RegistrarsePage = props => {
     const [apellido, setApellido] = React.useState("");
     const [documento, setDocumento] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [linkImagen, setLinkImagen] = React.useState("");
+    const [avatarUrl, setAvatarUrl] = React.useState("");
 
     const handleChangeNombre = (event) => {setNombre(event.target.value);};
     const handleChangeApellido = (event) => {setApellido(event.target.value);};
     const handleChangeDocumento = (event) => {setDocumento(event.target.value);};
     const handleChangePassword = (event) => {setPassword(event.target.value);};
-    const handleChangeLinkImagen = (event) => {setLinkImagen(event.target.value);};
+    const handleChangeAvatarUrl = (event) => {setAvatarUrl(event.target.value);};
 
     const registrarme = () => {
-        let token = "8743b52063cd84097a65d1633f5c74f5"
-        let fechaRegistro = new Date()
-        let fechaUltimaSesion = new Date()
 
         const estudiante = { 
-            nombre, apellido, documento, password, linkImagen, token, fechaRegistro, fechaUltimaSesion
+            nombre, apellido, documento, password, avatarUrl
         }
         
         sessionService.register(estudiante).then(
             response => {
-                localStorage.setItem('token', response.token)
+                //TODO: debería venir de la database jwt
+                localStorage.setItem('token', "8743b52063cd84097a65d1633f5c74f5")
                 navigate("/principal");
             },
             error => {
@@ -58,7 +56,7 @@ const RegistrarsePage = props => {
                             <TextField onChange={handleChangeApellido} id="apellido" label="Apellido" variant="outlined" />
                             <TextField onChange={handleChangePassword} id="password" label="Password" type="password" />
                             <TextField onChange={handleChangeDocumento} id="documento" label="Nro. de documento" variant="outlined" type="number"/>
-                            <TextField onChange={handleChangeLinkImagen} id="linkImagen" label="Link Imagen de Perfil" variant="outlined" />
+                            <TextField onChange={handleChangeAvatarUrl} id="avatarUrl" label="Link Imagen de Perfil" variant="outlined" />
                             
                         </Stack>
                     </Grid>

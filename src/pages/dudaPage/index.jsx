@@ -20,8 +20,8 @@ const DudaPage = props => {
         dudasService.getDudaById(id).then(
             response => {
                 debugger
-                setDuda(response)
-                setUrl("/foro/"+ response.tipo)
+                setDuda(response.duda)
+                setUrl("/foro/"+ response.duda.tipo)
             },
             error => {
 

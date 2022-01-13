@@ -15,37 +15,42 @@ async function getUserData(id) {
       headers: { 'Content-Type': 'application/json' }
   };
 
-  let url = `${baseUrl}/users?id=${id}`
+  let url = `${baseUrl}/api/user/${id}`
 
   const data = await fetch(url, requestOptions)
   const result = await data.json();
 
-  return result[0]
+  return result
 }
 
 async function login(documento, clave) {
+
   const requestOptions = {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({documento, password: clave})
   };
-  let url = `${baseUrl}/users?documento=${documento}&password=${clave}`
+
+  let url = `${baseUrl}/api/login`
 
   const data = await fetch(url, requestOptions)
   const result = await data.json();
 
-  return result[0]
+  return result
 
 }
 
 async function register(estudiante){
-  
+
   const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(estudiante)
   };
   
-  let url = `${baseUrl}/users`
+  debugger
+  
+  let url = `${baseUrl}/api/user`
   const data = await fetch(url, requestOptions)
   const result = await data.json();
 

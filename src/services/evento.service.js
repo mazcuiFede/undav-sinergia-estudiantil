@@ -9,7 +9,7 @@ export const eventoServices = {
 async function obtenerEventos(){
     const requestOptions = {
         method: "GET",
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
     }
 
     let url = `${baseUrl}/api/evento`
@@ -24,7 +24,7 @@ async function obtenerEventos(){
 async function guardarEvento(evento) {
     const requestOptions = {
         method: "POST",
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") },
         body: JSON.stringify(evento)
     }
     debugger
@@ -39,7 +39,7 @@ async function guardarEvento(evento) {
 async function eliminarEvento(id) {
     const requestOptions = {
         method: "DELETE",
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
     }
     debugger
     let url = `${baseUrl}/eventos/${id}`

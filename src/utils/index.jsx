@@ -1,1 +1,1 @@
-export const isLogin = () => { return window.localStorage.getItem('loggedAppUser') }
+export const isLogin = () => { return localStorage.getItem('token') }

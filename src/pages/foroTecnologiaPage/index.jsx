@@ -21,6 +21,7 @@ const ForoTecnologiaPage = props => {
     useEffect(() => {
         dudasService.dudasTecnologia().then(
             response => {
+                debugger
                 setDudas(response.dudas)
             },
             error => {

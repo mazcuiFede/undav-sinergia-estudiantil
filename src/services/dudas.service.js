@@ -16,14 +16,14 @@ export const dudasService = {
 async function getDudaById(id) {
     const requestOptions = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
     };
-  
+    debugger
     let url = `${baseUrl}/api/duda/${id}`
     const data = await fetch(url, requestOptions)
     const result = await data.json();
   
-    return result[0]
+    return result
   
   }
 
@@ -37,18 +37,17 @@ async function guardarDuda(titulo, descripcion, tags, tipo) {
         descripcion, 
         tags: tagsParseadas, 
         tipo,
-        puntos: 0,
         comentarios: []
     }
 
 
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") },
         body: JSON.stringify(duda)
     };
   
-    let url = `${baseUrl}/dudas`
+    let url = `${baseUrl}/api/duda`
   
     const data = await fetch(url, requestOptions)
     const result = await data.json();
@@ -60,7 +59,7 @@ async function guardarDuda(titulo, descripcion, tags, tipo) {
   async function dudasUniversitarias() {
     const requestOptions = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
     };
   
     let url = `${baseUrl}/api/duda/tipo/${UNIVERSIDAD}`
@@ -75,7 +74,7 @@ async function guardarDuda(titulo, descripcion, tags, tipo) {
 async function dudasLaborales(documento, clave) {
     const requestOptions = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
     };
 
     let url = `${baseUrl}/api/duda/tipo/${TRABAJO}`
@@ -89,7 +88,7 @@ async function dudasLaborales(documento, clave) {
 async function dudasTecnologia(documento, clave) {
     const requestOptions = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
     };
 
     let url = `${baseUrl}/api/duda/tipo/${TECNOLOGIA}`
