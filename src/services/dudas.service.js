@@ -19,7 +19,7 @@ async function getDudaById(id) {
         headers: { 'Content-Type': 'application/json' }
     };
   
-    let url = `${baseUrl}/dudas?id=${id}`
+    let url = `${baseUrl}/api/duda/${id}`
     const data = await fetch(url, requestOptions)
     const result = await data.json();
   
@@ -63,7 +63,7 @@ async function guardarDuda(titulo, descripcion, tags, tipo) {
         headers: { 'Content-Type': 'application/json' }
     };
   
-    let url = `${baseUrl}/dudas?tipo=${UNIVERSIDAD}`
+    let url = `${baseUrl}/api/duda/tipo/${UNIVERSIDAD}`
   
     const data = await fetch(url, requestOptions)
     const result = await data.json();
@@ -78,7 +78,7 @@ async function dudasLaborales(documento, clave) {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    let url = `${baseUrl}/dudas?tipo=${TRABAJO}`
+    let url = `${baseUrl}/api/duda/tipo/${TRABAJO}`
 
     const data = await fetch(url, requestOptions)
     const result = await data.json();
@@ -92,7 +92,7 @@ async function dudasTecnologia(documento, clave) {
         headers: { 'Content-Type': 'application/json' }
     };
 
-    let url = `${baseUrl}/dudas?tipo=${TECNOLOGIA}`
+    let url = `${baseUrl}/api/duda/tipo/${TECNOLOGIA}`
 
     const data = await fetch(url, requestOptions)
     const result = await data.json();

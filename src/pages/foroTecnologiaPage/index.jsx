@@ -21,7 +21,7 @@ const ForoTecnologiaPage = props => {
     useEffect(() => {
         dudasService.dudasTecnologia().then(
             response => {
-                setDudas(response)
+                setDudas(response.dudas)
             },
             error => {
 
@@ -33,17 +33,20 @@ const ForoTecnologiaPage = props => {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} alignItems="center" justifyContent="center">
                 <Grid item xs={6}>
-                    <Item><Typography variant="h4">Dudas sobre Tecnología</Typography></Item>
+                    <Typography variant="h4">Dudas sobre Tecnología</Typography>
                 </Grid>
-                <Grid item xs={6}>
-                    <Item>
-                        <Link to="/hacer-pregunta">
-                            <Button variant="contained">Hacer una pregunta</Button>
-                        </Link>
-                    </Item>
+                <Grid item xs={6} align={"right"}>
+                    <Link to="/hacer-pregunta">
+                        <Button variant="contained">Hacer una pregunta</Button>
+                    </Link>
                 </Grid>
                 <Grid item xs={12}>
-                    <Item><ForoItemsList dudas={dudas} /></Item>
+                    {
+                        dudas ? 
+                        <ForoItemsList dudas={dudas} />
+                        :
+                        <Typography className="text-center">No hay dudas cargadas</Typography>
+                    }
                 </Grid>
             </Grid>
         </Box>

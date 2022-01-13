@@ -16,7 +16,8 @@ const ForoUniversidadPage = props => {
     useEffect(() => {
         dudasService.dudasUniversitarias().then(
             response => {
-                setDudas(response)
+                debugger
+                setDudas(response.duda)
             },
             error => {
 
@@ -32,14 +33,18 @@ const ForoUniversidadPage = props => {
                     <Typography variant="h4">Dudas Universitarias</Typography>
                 </Grid>
                 <Grid item xs={6} align={"right"}>
-                    
                         <Link to="/hacer-pregunta">
                             <Button variant="contained">Hacer una pregunta</Button>
                         </Link>
-                    
                 </Grid>
                 <Grid item xs={12}>
-                    <ForoItemsList dudas={dudas} />
+                    {
+                        dudas ? 
+                        <ForoItemsList dudas={dudas} />
+                        :
+                        <Typography className="text-center">No hay dudas cargadas</Typography>
+                    }
+                    
                 </Grid>
             </Grid>
         </Box>

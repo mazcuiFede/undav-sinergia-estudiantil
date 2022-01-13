@@ -12,11 +12,12 @@ async function obtenerEventos(){
         headers: { 'Content-Type': 'application/json' }
     }
 
-    let url = `${baseUrl}/eventos`
+    let url = `${baseUrl}/api/evento`
   
     const data = await fetch(url, requestOptions)
     const result = await data.json();
-  
+    debugger
+    
     return result
 }
 

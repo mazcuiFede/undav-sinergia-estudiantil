@@ -38,7 +38,7 @@ class Demo extends React.Component {
 
     eventoServices.obtenerEventos().then(
       response => {
-        this.setState({ data: response });
+        this.setState({ data: response.evento });
       }
     )
   }

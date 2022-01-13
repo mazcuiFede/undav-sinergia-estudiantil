@@ -4,9 +4,7 @@ import Demo from './components/demo'
 
 const EventosPage = props => {
     return (
-        <div>
-            <Demo />
-        </div>
+        <Demo />
     )
 }
 
