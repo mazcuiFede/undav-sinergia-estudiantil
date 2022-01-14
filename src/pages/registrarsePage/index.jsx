@@ -33,8 +33,8 @@ const RegistrarsePage = props => {
         
         sessionService.register(estudiante).then(
             response => {
-                //TODO: debería venir de la database jwt
-                localStorage.setItem('token', "8743b52063cd84097a65d1633f5c74f5")
+                debugger
+                localStorage.setItem('token', response.token)
                 navigate("/principal");
             },
             error => {

@@ -12,11 +12,10 @@ export const sessionService = {
 async function getUserData(id) {
   const requestOptions = {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
   };
 
-  let url = `${baseUrl}/api/user/${id}`
-
+  let url = `${baseUrl}/api/userdata`
   const data = await fetch(url, requestOptions)
   const result = await data.json();
 
@@ -48,9 +47,7 @@ async function register(estudiante){
       body: JSON.stringify(estudiante)
   };
   
-  debugger
-  
-  let url = `${baseUrl}/api/user`
+  let url = `${baseUrl}/api/registrarse`
   const data = await fetch(url, requestOptions)
   const result = await data.json();
 

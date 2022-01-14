@@ -28,7 +28,7 @@ async function guardarEvento(evento) {
         body: JSON.stringify(evento)
     }
     debugger
-    let url = `${baseUrl}/eventos`
+    let url = `${baseUrl}/api/evento`
   
     const data = await fetch(url, requestOptions)
     const result = await data.json();

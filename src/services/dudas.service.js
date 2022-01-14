@@ -18,7 +18,6 @@ async function getDudaById(id) {
         method: 'GET',
         headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
     };
-    debugger
     let url = `${baseUrl}/api/duda/${id}`
     const data = await fetch(url, requestOptions)
     const result = await data.json();

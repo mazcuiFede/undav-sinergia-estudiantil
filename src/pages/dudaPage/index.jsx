@@ -19,7 +19,6 @@ const DudaPage = props => {
     useEffect(() => {
         dudasService.getDudaById(id).then(
             response => {
-                debugger
                 setDuda(response.duda)
                 setUrl("/foro/"+ response.duda.tipo)
             },

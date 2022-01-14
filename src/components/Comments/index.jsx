@@ -14,16 +14,11 @@ const Comments = ({data}) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    var userId = localStorage.getItem("_id")
-
-    if (!userId){
-      navigate("/login");
-    }
-    
     debugger
-    sessionService.getUserData(userId).then(
+    sessionService.getUserData().then(
       response => {
-        setUser(response)
+        debugger
+        setUser(response.user)
       }
     )
   }, [])
