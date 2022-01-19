@@ -19,6 +19,7 @@ const DudaPage = props => {
     useEffect(() => {
         dudasService.getDudaById(id).then(
             response => {
+                debugger
                 setDuda(response.duda)
                 setUrl("/foro/"+ response.duda.tipo)
             },
@@ -54,7 +55,7 @@ const DudaPage = props => {
                 <Grid item xs={12}>
                     {
                         duda ? 
-                        <Comments data={duda.comentarios}/>
+                        <Comments data={duda.comentarios} idcomentario={id}/>
                         : 
                         <CircularProgress />
                     }

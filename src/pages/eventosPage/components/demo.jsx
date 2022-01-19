@@ -148,15 +148,16 @@ class Demo extends React.Component {
 
   showDeletedToast(e) {
     debugger
-    eventoServices.eliminarEvento(e.appointmentData.id).then(
+    eventoServices.eliminarEvento(e.appointmentData._id).then(
       response => {
-        this.showToast('Added', e.appointmentData.text, 'success');
+        debugger
+        this.showToast('Eliminado', e.appointmentData.text, 'warning');
       },
       error => {
         debugger  
       }
     )
-    this.showToast('Deleted', e.appointmentData.text, 'warning');
+    // this.showToast('Deleted', e.appointmentData.text, 'warning');
   }
 
 }

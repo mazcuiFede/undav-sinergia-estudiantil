@@ -9,7 +9,8 @@ export const dudasService = {
   dudasLaborales,
   dudasTecnologia,
   getDudaById,
-  guardarDuda
+  guardarDuda,
+  putDudaComment
 };
 
 
@@ -25,6 +26,22 @@ async function getDudaById(id) {
     return result
   
   }
+
+async function putDudaComment(id, comentarios) {
+
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") },
+        body: JSON.stringify({"comentarios": comentarios})
+    };
+    
+    let url = `${baseUrl}/api/duda/${id}`
+    const data = await fetch(url, requestOptions)
+    const result = await data.json();
+  
+    return result
+  
+}
 
 
 async function guardarDuda(titulo, descripcion, tags, tipo) {
@@ -70,7 +87,7 @@ async function guardarDuda(titulo, descripcion, tags, tipo) {
   
   }
 
-async function dudasLaborales(documento, clave) {
+async function dudasLaborales() {
     const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
@@ -84,7 +101,7 @@ async function dudasLaborales(documento, clave) {
     return result
 }
 
-async function dudasTecnologia(documento, clave) {
+async function dudasTecnologia() {
     const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }

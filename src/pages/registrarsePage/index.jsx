@@ -6,9 +6,23 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/img/logo.png'
 import { Button, Grid, Paper, Avatar } from '@mui/material'
 import { Link } from "react-router-dom";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 import sessionService from '../../services/session.service';
 
+const carreras = [
+    "Licenciatura en Ciencias Ambientales",
+    "Ingeniería Informática",
+    "Licenciatura en Actividad Física y Deporte",
+    "Licenciatura en Gestión Cultural",
+    "Licenciatura en Periodismo",
+    "Licenciatura en Enfermería",
+    "Licenciatura en Artes Audiovisuales",
+    "Licenciatura en Guiado de Viajes y Turismo"
+]
 
 const RegistrarsePage = props => {
     const navigate = useNavigate();
@@ -18,7 +32,9 @@ const RegistrarsePage = props => {
     const [documento, setDocumento] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [avatarUrl, setAvatarUrl] = React.useState("");
+    const [carrera, setCarrera] = React.useState('');
 
+    const handleChangeCarrera = (event) => {setCarrera(event.target.value);};
     const handleChangeNombre = (event) => {setNombre(event.target.value);};
     const handleChangeApellido = (event) => {setApellido(event.target.value);};
     const handleChangeDocumento = (event) => {setDocumento(event.target.value);};
@@ -28,7 +44,7 @@ const RegistrarsePage = props => {
     const registrarme = () => {
 
         const estudiante = { 
-            nombre, apellido, documento, password, avatarUrl
+            nombre, apellido, documento, password, avatarUrl, carrera
         }
         
         sessionService.register(estudiante).then(
@@ -54,8 +70,25 @@ const RegistrarsePage = props => {
                         <Stack spacing={2}>
                             <TextField onChange={handleChangeNombre} id="nombre" label="Nombre" name="Nombre" variant="outlined" />
                             <TextField onChange={handleChangeApellido} id="apellido" label="Apellido" variant="outlined" />
-                            <TextField onChange={handleChangePassword} id="password" label="Password" type="password" />
+                            <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Carrera</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={carrera}
+                                    label="Age"
+                                    onChange={handleChangeCarrera}
+                                >
+                                    {
+                                        carreras.map((carrera, i) => {
+                                            return <MenuItem value={carrera} key={i}>{carrera}</MenuItem>
+                                        })
+                                    }
+
+                                </Select>
+                            </FormControl>
                             <TextField onChange={handleChangeDocumento} id="documento" label="Nro. de documento" variant="outlined" type="number"/>
+                            <TextField onChange={handleChangePassword} id="password" label="Password" type="password" />
                             <TextField onChange={handleChangeAvatarUrl} id="avatarUrl" label="Link Imagen de Perfil" variant="outlined" />
                             
                         </Stack>

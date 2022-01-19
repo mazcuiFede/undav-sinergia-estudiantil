@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
 import sessionService from '../../services/session.service'
+import dudaServices from '../../services/dudas.service'
 import { CommentSection } from './../../dependencies/React-comments'
 import './../../dependencies/React-comments/index.css'
 import "./Comments.css"
 
 
-const Comments = ({data}) => {
+const Comments = ({data, idcomentario}) => {
   
   const [comment, setComment] = useState(data)
   const [user, setUser] = useState(null)
   
-  let navigate = useNavigate();
 
   useEffect(() => {
-    debugger
     sessionService.getUserData().then(
       response => {
-        debugger
         setUser(response.user)
       }
     )
@@ -25,6 +22,12 @@ const Comments = ({data}) => {
 
   const setearComentarios = (comments) => {
     setComment(comments)
+    dudaServices.putDudaComment(idcomentario, comments)
+    .then(
+      response => {
+        debugger
+      }
+    )
   }
 
   const signinUrl = "/login"

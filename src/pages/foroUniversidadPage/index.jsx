@@ -39,7 +39,7 @@ const ForoUniversidadPage = props => {
                 </Grid>
                 <Grid item xs={12}>
                     {
-                        dudas ? 
+                        dudas && dudas.length > 0 ? 
                         <ForoItemsList dudas={dudas} />
                         :
                         <Typography className="text-center">No hay dudas cargadas</Typography>

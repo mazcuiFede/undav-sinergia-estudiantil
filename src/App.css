@@ -3,7 +3,8 @@ body {
 }
 
 .sidenav.sidebar{
-    background: #163353
+    background: #163353;
+    position: fixed;
 }
 
 a {

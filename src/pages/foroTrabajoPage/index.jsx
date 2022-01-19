@@ -19,7 +19,7 @@ const ForoTrabajoPage = props => {
     useEffect(() => {
         dudasService.dudasLaborales().then(
             response => {
-                setDudas(response.dudas)
+                setDudas(response.duda)
             },
             error => {
 
@@ -40,7 +40,7 @@ const ForoTrabajoPage = props => {
                 </Grid>
                 <Grid item xs={12}>
                     {
-                        dudas ? 
+                        dudas && dudas.length > 0 ? 
                         <ForoItemsList dudas={dudas} />
                         :
                         <Typography className="text-center">No hay dudas cargadas</Typography>

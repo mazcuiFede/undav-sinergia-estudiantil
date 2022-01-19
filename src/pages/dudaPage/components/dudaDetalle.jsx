@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { List, Grid, Divider } from '@mui/material';
-import { format } from 'date-fns';
+import Moment from 'moment'
 import { Box, Stack, Typography, Chip } from '@mui/material';
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const DudaDetalle = props => {
                     {duda.titulo}          
                 </Typography>
                 <Typography paragraph={true}>
-                    Pregunta realizada el día: {duda.createdAt}
+                    Pregunta realizada el día: {Moment(duda.createdAt).format('YYYY-MM-DD HH:MM')}hs.
                 </Typography>
             </Grid>
             

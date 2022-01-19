@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Moment from 'moment'
 import { Avatar, Grid, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SchoolIcon from '@mui/icons-material/School';
@@ -8,16 +9,19 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PersonIcon from '@mui/icons-material/Person';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 
-const Perfil = ({datosPersona}) => {
+const Perfil = ({user}) => {
+
     return (
         <Box bgcolor="#B6B5C8" p={2}>
             <Grid container>
                 <Grid item xs={6} align="right">
                     <Avatar
-                            alt="Remy Sharp"
-                            src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            sx={{ width: 100, height: 100 }}
+                            alt={user.name}
+                            src={user.avatarUrl}
+                            sx={{ width: 150, height: 150 }}
                         />
                 </Grid>
                 <Grid item xs={6}>
@@ -27,7 +31,7 @@ const Perfil = ({datosPersona}) => {
                                 <PersonIcon />
                             </ListItemIcon>
                             <ListItemText
-                                primary="Matias Federico Azcui"
+                                primary={`${user.nombre} ${user.apellido}`}
                                 
                             />
                         </ListItem>
@@ -36,10 +40,26 @@ const Perfil = ({datosPersona}) => {
                                 <SchoolIcon />
                             </ListItemIcon>
                             <ListItemText
-                                primary="Ingeniería informática"
-                                secondary="4to año"
+                                primary={user.carrera}
                             />
                         </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <EventAvailableIcon />
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={`Fecha registro: ${Moment(user.signupDate).format('YYYY-MM-DD')}`}
+                            />
+                        </ListItem>
+                        <ListItem>
+                            <ListItemIcon>
+                                <PermContactCalendarIcon />
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={`Fecha última sesión: ${user.lastSession.replace("T", " a las ").split(".")[0]} hs.`}
+                            />
+                        </ListItem>
+                        
                     </List>
                 </Grid>
             </Grid>

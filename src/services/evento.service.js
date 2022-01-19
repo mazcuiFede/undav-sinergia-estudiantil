@@ -27,7 +27,7 @@ async function guardarEvento(evento) {
         headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") },
         body: JSON.stringify(evento)
     }
-    debugger
+    
     let url = `${baseUrl}/api/evento`
   
     const data = await fetch(url, requestOptions)
@@ -42,7 +42,7 @@ async function eliminarEvento(id) {
         headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") }
     }
     debugger
-    let url = `${baseUrl}/eventos/${id}`
+    let url = `${baseUrl}/api/evento/${id}`
   
     const data = await fetch(url, requestOptions)
     const result = await data.json();
