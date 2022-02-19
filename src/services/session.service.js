@@ -6,7 +6,8 @@ export const sessionService = {
   login,
   register,
   logout,
-  getUserData
+  getUserData,
+  updateUserStatus
 };
 
 async function getUserData(id) {
@@ -41,6 +42,8 @@ async function login(documento, clave) {
 
 async function register(estudiante){
 
+  estudiante.status = "activo"
+
   const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -52,6 +55,20 @@ async function register(estudiante){
   const result = await data.json();
 
   return result
+}
+
+async function updateUserStatus(status){
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'authorization': "bearer " + localStorage.getItem("token") },
+        body: JSON.stringify({status: status})
+    };
+    
+    let url = `${baseUrl}/api/user`
+    const data = await fetch(url, requestOptions)
+    const result = await data.json();
+
+    return result
 }
 
 function logout() {

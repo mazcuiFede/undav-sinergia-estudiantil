@@ -1,6 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 import { ROOT, LOGIN, REGISTRARSE, PRINCIPAL, FORO_UNIVERSIDAD, FORO_TRABAJO, FORO_TECNOLOGIA, FORO_DUDA,
-         EVENTOS, PERFIL, POSTULARME_ADMIN, CREAR_EVENTO, HACER_PREGUNTA } from './../constants/url'
+         EVENTOS, POSTULARME_ADMIN, HACER_PREGUNTA } from './../constants/url'
 import { Layout } from '../components/Layout'
 import PrivateRoute from '../components/PrivateRoute';
 
@@ -11,7 +11,6 @@ import ForoUniversidadPage from '../pages/foroUniversidadPage'
 import ForoTrabajoPage from '../pages/foroTrabajoPage'
 import ForoTecnologiaPage  from '../pages/foroTecnologiaPage'
 import EventosPage  from '../pages/eventosPage'
-import PerfilPage from '../pages/perfilPage'
 import HacerPregunta from '../pages/hacerPregunta';
 import PostularmeAdmin from '../pages/postularmeAdmin';
 import DudaPage from '../pages/dudaPage'
@@ -33,7 +32,6 @@ export const RouterConfig = () => {
             <Route path={FORO_DUDA} element={<PrivateRoute><Layout children={<DudaPage />}/></PrivateRoute>} />
             
             <Route path={EVENTOS} element={<PrivateRoute><Layout children={<EventosPage />}/></PrivateRoute>} />
-            <Route path={PERFIL} element={<PrivateRoute><Layout children={<PerfilPage />}/></PrivateRoute>} />
             {/* <Route path={SUBIR_CONTENIDO} element={<PrivateRoute><Layout children={<SubirContenidoPage />}/></PrivateRoute>} /> */}
             <Route path={HACER_PREGUNTA} element={<PrivateRoute><Layout children={<HacerPregunta />}/></PrivateRoute>} />
             <Route path={POSTULARME_ADMIN} element={<PrivateRoute><Layout children={<PostularmeAdmin />}/></PrivateRoute>} />

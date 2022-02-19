@@ -9,9 +9,7 @@ export const FORO_TECNOLOGIA = "/foro/tecnologia";
 export const FORO_DUDA = "/foro/duda/:id";
 
 export const EVENTOS = "/eventos";
-export const PERFIL = "/perfil";
 // export const SUBIR_CONTENIDO = "/subir-contenido";
-export const CREAR_EVENTO = "/crear-evento";
 export const HACER_PREGUNTA = "/hacer-pregunta";
 export const POSTULARME_ADMIN = "/postularme-admin";
 

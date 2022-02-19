@@ -104,25 +104,6 @@ export const Layout = ({children}) => {
                         </NavText>
                     </NavItem>
 
-
-                    {/* <NavItem eventKey="/crear-evento">
-                        <NavIcon style={{padding: "7px"}}>
-                            <AddBoxIcon className="fa fa-fw fa-list-alt" />
-                        </NavIcon>
-                        <NavText title="Crear Evento">
-                            Crear Evento
-                        </NavText>
-                    </NavItem> */}
-
-                    <NavItem eventKey="/perfil">
-                        <NavIcon style={{padding: "7px"}}>
-                            <PersonIcon  />
-                        </NavIcon>
-                        <NavText title="Perfil">
-                            Perfil
-                        </NavText>
-                    </NavItem>
-
                     <NavItem eventKey="/postularme-admin">
                         <NavIcon style={{padding: "7px"}}>
                             <AdminPanelSettingsIcon  />

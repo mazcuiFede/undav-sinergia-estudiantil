@@ -36,7 +36,7 @@ const ForoItemsList = ({dudas}) => {
                                     <ListItem alignItems={"flex-start"}>
                                         <ListItemButton onClick={() => {navigate(`/foro/duda/${duda._id}`);}}>
                                             <Stack spacing={2} direction="row">
-                                                <Item><Button variant="outlined">{duda.puntos} puntos</Button></Item>
+                                                {/* <Item><Button variant="outlined">{duda.puntos} puntos</Button></Item> */}
                                                 <Item><Button variant="outlined">{duda.comentarios.length} comentarios</Button></Item>
                                                 <Item><ListItemText primary={duda.titulo} /></Item>
                                                 <Item>

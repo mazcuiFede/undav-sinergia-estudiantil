@@ -15,8 +15,7 @@ import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 const Perfil = ({user}) => {
 
     return (
-        <Box bgcolor="#B6B5C8" p={2}>
-            <Grid container>
+        <Grid container bgcolor="#efefef" mt={3} p={3}>
                 <Grid item xs={6} align="right">
                     <Avatar
                             alt={user.name}
@@ -62,8 +61,7 @@ const Perfil = ({user}) => {
                         
                     </List>
                 </Grid>
-            </Grid>
-        </Box>
+        </Grid>
     )
 }
 
