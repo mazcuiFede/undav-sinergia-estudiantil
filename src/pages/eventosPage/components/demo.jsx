@@ -17,9 +17,9 @@ class Demo extends React.Component {
     super(props);
     this.state = {
       allowAdding: true,
-      allowDeleting: true,
-      allowResizing: true,
-      allowDragging: true,
+      allowDeleting: false,
+      allowResizing: false,
+      allowDragging: false,
       allowUpdating: false,
       data: {}
     };

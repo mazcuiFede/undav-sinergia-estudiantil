@@ -1,20 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Grid, Paper, Avatar, Typography , Box } from '@mui/material'
 import logo from '../../assets/img/logo.png'
 import sessionService from '../../services/session.service'
+import Alert from '@mui/material/Alert';
 
 const PostularmeAdmin = props => {
-
+    const [postulacionMsg, setPostulacionMsg] = useState("")
     
     const postularme = () => {
 
         sessionService.updateUserStatus("postulado").then(
             response => {
-                debugger
-                // debugger
-                // localStorage.setItem('token', response.token)
-                // navigate("/principal");
+                setPostulacionMsg("Tu postulación fue procesada con éxito.")
             },
             error => {
 
@@ -39,9 +37,16 @@ const PostularmeAdmin = props => {
                 </Typography>
                 <Box mt={4} mb={3}>
                     <Typography align={"center"}>
-                        <Button variant="contained" onClick={postularme}>
-                            ¡Quiero postularme como administrador/a!
-                        </Button>
+                        {
+                            postulacionMsg.length == 0 
+                            ?
+                            <Button variant="contained" onClick={postularme}>
+                                ¡Quiero postularme como administrador/a!
+                            </Button>
+                            :
+                            <Alert severity="success">{postulacionMsg}</Alert>
+
+                        }
                     </Typography>
                 </Box>
                 

@@ -10,7 +10,7 @@ const LoginPage = () => {
 
     const [documento, setDocumento] = useState("");
     const [password, setPassword] = useState("");
-    const [formError, setFormError] = useState(false);
+    const [formErrorMessage, setFormErrorMessage] = useState("");
 
     let navigate = useNavigate();
 
@@ -33,9 +33,9 @@ const LoginPage = () => {
                         navigate("/principal");
                     }
                     else{
-                        setFormError(true)
+                        setFormErrorMessage(response.msg)
                         setTimeout(() => {
-                            setFormError(false)
+                            setFormErrorMessage("")
                         }, 3000)
                         setDocumento('')
                         setPassword('')
@@ -47,9 +47,9 @@ const LoginPage = () => {
             )
 
         } catch(e) {
-            setFormError(true)
+            setFormErrorMessage("Hubo un error")
             setTimeout(() => {
-                setFormError(false)
+                setFormErrorMessage("")
             }, 3000)
             setDocumento('')
             setPassword('')
@@ -67,9 +67,9 @@ const LoginPage = () => {
                 <TextField placeholder='Contraseña' type='password' value={password} onChange={({target}) => setPassword(target.value)} margin="dense" fullWidth required/>
             </Grid>   
             <Grid align="middle" mt={3}>
-                { formError ? 
+                { formErrorMessage.length > 0 ? 
                 <Alert style={{ backgroundColor: "#FF6B6B" }} variant="filled" severity="success">
-                    Credenciales Invalidas
+                    {formErrorMessage}
                 </Alert>
                 :
                     <Button type='submit' onClick={handleLogin} color='primary' variant="contained" size="medium">Iniciar Sesion</Button>
