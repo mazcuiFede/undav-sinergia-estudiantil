@@ -1,6 +1,9 @@
 {
   "name": "odin-crm",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "dependencies": {
     "@devexpress/dx-core": "^2.7.6",
