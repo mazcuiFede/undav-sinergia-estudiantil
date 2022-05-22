@@ -47,7 +47,7 @@
   },
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build"
   },
   "eslintConfig": {
