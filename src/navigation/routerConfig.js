@@ -1,21 +1,21 @@
 import { Routes, Route } from "react-router-dom"
-// import {
-//   ROOT,
-//   LOGIN,
-//   REGISTRARSE,
-//   PRINCIPAL,
-//   FORO_UNIVERSIDAD,
-//   FORO_TRABAJO,
-//   FORO_TECNOLOGIA,
-//   FORO_DUDA,
-//   EVENTOS,
-//   POSTULARME_ADMIN,
-//   HACER_PREGUNTA,
-// } from "./../constants/url"
-// import { Layout } from "../components/Layout"
+import {
+  ROOT,
+  LOGIN,
+  REGISTRARSE,
+  PRINCIPAL,
+  FORO_UNIVERSIDAD,
+  FORO_TRABAJO,
+  FORO_TECNOLOGIA,
+  FORO_DUDA,
+  EVENTOS,
+  POSTULARME_ADMIN,
+  HACER_PREGUNTA,
+} from "./../constants/url"
+import { Layout } from "../components/Layout"
 // import PrivateRoute from "../components/PrivateRoute"
 
-// import LoginPage from "../pages/loginPage"
+import LoginPage from "../pages/loginPage"
 // import RegistrarsePage from "../pages/registrarsePage"
 // import PrincipalPage from "../pages/principalPage"
 // import ForoUniversidadPage from "../pages/foroUniversidadPage"
@@ -29,8 +29,8 @@ import { Routes, Route } from "react-router-dom"
 export const RouterConfig = () => {
   return (
     <Routes>
-      {/* <Route path={LOGIN} element={<LoginPage /> }/>
-            <Route path={REGISTRARSE} element={<RegistrarsePage />} />
+      <Route path={LOGIN} element={<LoginPage />} />
+      {/*     <Route path={REGISTRARSE} element={<RegistrarsePage />} />
 
 
             <Route path={ROOT} element={<PrivateRoute><Layout children={<PrincipalPage />}/></PrivateRoute>} />
