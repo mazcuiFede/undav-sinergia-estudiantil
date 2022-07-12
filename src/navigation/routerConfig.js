@@ -13,10 +13,10 @@ import {
   HACER_PREGUNTA,
 } from "./../constants/url"
 import { Layout } from "../components/Layout"
-// import PrivateRoute from "../components/PrivateRoute"
+import PrivateRoute from "../components/PrivateRoute"
 
 import LoginPage from "../pages/loginPage"
-// import RegistrarsePage from "../pages/registrarsePage"
+import RegistrarsePage from "../pages/registrarsePage"
 // import PrincipalPage from "../pages/principalPage"
 // import ForoUniversidadPage from "../pages/foroUniversidadPage"
 // import ForoTrabajoPage from "../pages/foroTrabajoPage"
@@ -30,10 +30,9 @@ export const RouterConfig = () => {
   return (
     <Routes>
       <Route path={LOGIN} element={<LoginPage />} />
-      {/*     <Route path={REGISTRARSE} element={<RegistrarsePage />} />
+      <Route path={REGISTRARSE} element={<RegistrarsePage />} />
 
-
-            <Route path={ROOT} element={<PrivateRoute><Layout children={<PrincipalPage />}/></PrivateRoute>} />
+      {/*      <Route path={ROOT} element={<PrivateRoute><Layout children={<PrincipalPage />}/></PrivateRoute>} />
             <Route path={PRINCIPAL} element={<PrivateRoute><Layout children={<PrincipalPage />}/></PrivateRoute>} />
             <Route path={FORO_UNIVERSIDAD} element={<PrivateRoute><Layout children={<ForoUniversidadPage />}/></PrivateRoute>} />
             <Route path={FORO_TRABAJO} element={<PrivateRoute><Layout children={<ForoTrabajoPage />}/></PrivateRoute>} />

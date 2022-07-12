@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Divider, Box } from "@mui/material"
+import SideNav, { NavItem, NavIcon, NavText } from "@trendmicro/react-sidenav"
+import "@trendmicro/react-breadcrumbs/dist/react-breadcrumbs.css"
+import "@trendmicro/react-buttons/dist/react-buttons.css"
+import "@trendmicro/react-dropdown/dist/react-dropdown.css"
+import "@trendmicro/react-sidenav/dist/react-sidenav.css"
 import HomeIcon from "@mui/icons-material/Home"
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings"
 import LogoutIcon from "@mui/icons-material/Logout"
@@ -8,11 +13,6 @@ import QuizIcon from "@mui/icons-material/Quiz"
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import SideNav, { NavItem, NavIcon, NavText } from "@trendmicro/react-sidenav"
-import "@trendmicro/react-breadcrumbs/dist/react-breadcrumbs.css"
-import "@trendmicro/react-buttons/dist/react-buttons.css"
-import "@trendmicro/react-dropdown/dist/react-dropdown.css"
-import "@trendmicro/react-sidenav/dist/react-sidenav.css"
 
 const Main = styled.main`
   position: relative;
