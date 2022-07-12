@@ -37,7 +37,6 @@
     "react-final-form": "^6.5.7",
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
-    "react-user-profile": "^1.0.3",
     "serve": "^13.0.2",
     "simple-react-comments": "^1.1.0",
     "styled-components": "^5.3.3",
