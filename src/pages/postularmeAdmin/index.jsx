@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 import { Button, Grid, Paper, Avatar, Typography, Box } from "@mui/material"
 import logo from "../../assets/img/logo.png"
 import sessionService from "../../services/session.service"
@@ -46,7 +45,7 @@ const PostularmeAdmin = (props) => {
           </Typography>
           <Box mt={4} mb={3}>
             <Typography align={"center"}>
-              {postulacionMsg.length == 0 ? (
+              {postulacionMsg.length === 0 ? (
                 <Button variant="contained" onClick={postularme}>
                   ¡Quiero postularme como administrador/a!
                 </Button>
