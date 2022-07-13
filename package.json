@@ -1,9 +1,6 @@
 {
   "name": "undav-sinergia",
   "version": "1.0.0",
-  "engines": {
-    "node": "16.x"
-  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -32,7 +29,7 @@
     "react-scripts": "5.0.1",
     "react-uuid": "^1.0.2",
     "reactjs-popup": "^2.0.5",
-    "serve": "^13.0.2",
+    "serve": "^14.0.0",
     "styled-components": "^5.3.3",
     "typeface-roboto": "^1.1.13",
     "web-vitals": "^2.1.4"
